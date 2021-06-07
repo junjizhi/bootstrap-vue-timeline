@@ -1,17 +1,49 @@
 <script>
 import Vue from 'vue';
 import BootstrapVueTimeline from '@/bootstrap-vue-timeline.vue';
+import { BCard } from 'bootstrap-vue'
+Vue.component('b-card', BCard)
 
 export default Vue.extend({
   name: 'ServeDev',
   components: {
     BootstrapVueTimeline
+  },
+  data() {
+    return {
+      timelineItems: [
+        {
+          timestamp: Date.parse('2021-05-29T20:20:46.444Z'),
+          title: 'Dolore ullamco exercitation commodo',
+          content: 'Esse dolore consectetur aliqua laboris sunt aliqua do non.',
+          link: 'https://example1.com'
+        },
+        {
+          timestamp: Date.parse('2021-05-28T20:20:46.444Z'),
+          title: 'Voluptate pariatur dolore laborum eu',
+          content: 'Et cillum ullamco mollit commodo ullamco non duis elit sit nisi aliquip excepteur fugiat.',
+          link: '#'
+        },
+        {
+          timestamp: Date.parse('2021-01-28T20:20:46.444Z'),
+          title: 'Mollit aliqua velit nostrud ipsum',
+          content: 'Magna officia est fugiat sit esse consectetur labore elit nulla duis consectetur. Et sit velit ad ipsum officia.',
+          link: '#'
+        }
+      ]
+    }
   }
 });
 </script>
 
 <template>
   <div id="app">
-    <bootstrap-vue-timeline />
+    <b-card
+    title="Event Timeline"
+    >
+      <bootstrap-vue-timeline
+        :items="timelineItems"
+      />
+    </b-card>
   </div>
 </template>

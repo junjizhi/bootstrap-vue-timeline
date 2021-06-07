@@ -1,78 +1,103 @@
 <script>
+import Vue from 'vue'
+import { BListGroup, BListGroupItem, BTooltip } from 'bootstrap-vue'
+import { format, formatDistanceToNow } from 'date-fns'
+
+Vue.component('b-list-group', BListGroup)
+Vue.component('b-list-group-item', BListGroupItem)
+Vue.component('b-tooltip', BTooltip)
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default /*#__PURE__*/{
   name: 'BootstrapVueTimeline', // vue component name
-  data() {
-    return {
-      counter: 5,
-      initCounter: 5,
-      message: {
-        action: null,
-        amount: null,
-      },
-    };
-  },
-  computed: {
-    changedBy() {
-      const { message } = this;
-      if (!message.action) return 'initialized';
-      return `${message.action} ${message.amount || ''}`.trim();
-    },
+  props: {
+    items: Array
   },
   methods: {
-    increment(arg) {
-      const amount = (typeof arg !== 'number') ? 1 : arg;
-      this.counter += amount;
-      this.message.action = 'incremented by';
-      this.message.amount = amount;
+    formatAgo(timestamp) {
+      return formatDistanceToNow(timestamp, { addSuffix: true })
     },
-    decrement(arg) {
-      const amount = (typeof arg !== 'number') ? 1 : arg;
-      this.counter -= amount;
-      this.message.action = 'decremented by';
-      this.message.amount = amount;
+    formatFull(timestamp) {
+      return format(timestamp, 'yyyy-MM-dd HH:mm:ss')
     },
-    reset() {
-      this.counter = this.initCounter;
-      this.message.action = 'reset';
-      this.message.amount = null;
-    },
-  },
+    timestampElementId(item) {
+      return item.timestamp + item.title + '-timestamp'
+    }
+  }
 };
 </script>
 
 <template>
-  <div class="bootstrap-vue-timeline">
-    <p>The counter was {{ changedBy }} to <b>{{ counter }}</b>.</p>
-    <button @click="increment">
-      Click +1
-    </button>
-    <button @click="decrement">
-      Click -1
-    </button>
-    <button @click="increment(5)">
-      Click +5
-    </button>
-    <button @click="decrement(5)">
-      Click -5
-    </button>
-    <button @click="reset">
-      Reset
-    </button>
-  </div>
+  <b-list-group>
+    <b-list-group-item
+      v-for="(item, index) in items"
+      :key="item.timestamp + item.title"
+      :href="item.link"
+      class="flex-column align-items-start">
+      <div class="item-head">
+      </div>
+      <div
+        v-if="index !== items.length - 1"
+        class="item-tail">
+      </div>
+
+      <div class="item-content">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ item.title }}</h5>
+          <small
+            :id="timestampElementId(item)"
+          > {{ formatAgo(item.timestamp) }}</small>
+
+          <b-tooltip :target="timestampElementId(item)"
+            triggers="hover">
+            {{ formatFull(item.timestamp) }}
+          </b-tooltip>
+        </div>
+
+        <small class="mb-1" >
+          {{ item.content }}
+        </small>
+
+        <small>Donec id elit non mi porta.</small>
+      </div>
+    </b-list-group-item>
+  </b-list-group>
 </template>
 
 <style scoped>
-  .bootstrap-vue-timeline {
-    display: block;
-    width: 400px;
-    margin: 25px auto;
-    border: 1px solid #ccc;
-    background: #eaeaea;
-    text-align: center;
-    padding: 25px;
-  }
-  .bootstrap-vue-timeline p {
-    margin: 0 0 1em;
-  }
+.list-group-item {
+  position: relative;
+  border: none;
+  margin: 0;
+  padding: 0 0 20px;
+  box-sizing: border-box;
+}
+
+.item-head {
+  background-color: #1890ff;
+  color: #1890ff;
+  border-color: #1890ff;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 2px solid transparent;
+  border-radius: 100px;
+}
+
+.item-tail {
+  position: absolute;
+  top: 10px;
+  left: 4px;
+  height: calc(100% - 10px);
+  border-left: 2px solid #e8e8e8;
+}
+
+.item-content {
+  position: relative;
+  top: -6px;
+  margin: 0 0 0 18px;
+  word-break: break-word;
+}
 </style>
