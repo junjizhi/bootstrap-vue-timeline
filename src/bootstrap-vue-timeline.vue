@@ -35,28 +35,32 @@ export default /*#__PURE__*/{
       v-for="(item, index) in items"
       :key="item.timestamp + item.title"
       :href="item.link"
-      class="flex-column align-items-start">
-      <div class="item-head">
-      </div>
+      class="flex-column align-items-start"
+    >
+      <div class="item-head" />
       <div
         v-if="index !== items.length - 1"
-        class="item-tail">
-      </div>
+        class="item-tail"
+      />
 
       <div class="item-content">
         <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{ item.title }}</h5>
+          <h5 class="mb-1">
+            {{ item.title }}
+          </h5>
           <small
             :id="timestampElementId(item)"
           > {{ formatAgo(item.timestamp) }}</small>
 
-          <b-tooltip :target="timestampElementId(item)"
-            triggers="hover">
+          <b-tooltip
+            :target="timestampElementId(item)"
+            triggers="hover"
+          >
             {{ formatFull(item.timestamp) }}
           </b-tooltip>
         </div>
 
-        <small class="mb-1" >
+        <small class="mb-1">
           {{ item.content }}
         </small>
 

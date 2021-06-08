@@ -39,7 +39,7 @@ export default Vue.extend({
 <template>
   <div id="app">
     <b-card
-    title="Event Timeline"
+      title="Event Timeline"
     >
       <bootstrap-vue-timeline
         :items="timelineItems"
