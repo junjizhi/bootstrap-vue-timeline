@@ -21,7 +21,6 @@ export default Vue.extend({
         {
           timestamp: Date.parse('2021-05-28T20:20:46.444Z'),
           title: 'Voluptate pariatur dolore laborum eu',
-          content: 'Et cillum ullamco mollit commodo ullamco non duis elit sit nisi aliquip excepteur fugiat.',
           link: '#'
         },
         {

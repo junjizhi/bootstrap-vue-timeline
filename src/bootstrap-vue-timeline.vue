@@ -45,11 +45,12 @@ export default /*#__PURE__*/{
 
       <div class="item-content">
         <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">
+          <h5 class="mt-2 mb-1">
             {{ item.title }}
           </h5>
           <small
             :id="timestampElementId(item)"
+            class="mt-2"
           > {{ formatAgo(item.timestamp) }}</small>
 
           <b-tooltip
@@ -61,10 +62,8 @@ export default /*#__PURE__*/{
         </div>
 
         <small class="mb-1">
-          {{ item.content }}
+          {{ item.content || '' }}
         </small>
-
-        <small>Donec id elit non mi porta.</small>
       </div>
     </b-list-group-item>
   </b-list-group>
