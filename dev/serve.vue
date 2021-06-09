@@ -4,6 +4,9 @@ import BootstrapVueTimeline from '@/bootstrap-vue-timeline.vue';
 import { BCard } from 'bootstrap-vue'
 Vue.component('b-card', BCard)
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 export default Vue.extend({
   name: 'ServeDev',
   components: {

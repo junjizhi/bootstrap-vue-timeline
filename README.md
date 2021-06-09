@@ -3,6 +3,8 @@
 ## Introduction
 A simple timeline component similar to [Ant Timeline](https://www.antdv.com/components/timeline/) based on [Bootstrap-Vue](https://bootstrap-vue.org/).
 
+**Note**: This component assumes you use [Bootstrap-Vue (v4)](https://bootstrap-vue.org/) in your project and have installed [the dependencies](https://bootstrap-vue.org/docs).
+
 ## Demo
 
 Link: TBD
@@ -12,7 +14,8 @@ Link: TBD
 ```bash
 npm i bootstrap-vue-timeline
 
-# or:
+# if you use yarn:
+
 yarn add bootstrap-vue-timeline
 ```
 
@@ -21,9 +24,17 @@ yarn add bootstrap-vue-timeline
 ```html
 <script>
 import Vue from 'vue';
-import BootstrapVueTimeline from '@/bootstrap-vue-timeline.vue';
+import BootstrapVueTimeline from 'bootstrap-vue-timeline'
 import { BCard } from 'bootstrap-vue'
 Vue.component('b-card', BCard)
+Vue.component('b-timeline', BootstrapVueTimeline)
+
+// Uncomment the following to import BootstrapVue CSS files if you
+// have not done so when registering BootstrapVue. Order is important.
+// Check out: https://bootstrap-vue.org/docs#using-module-bundlers
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 
 export default Vue.extend({
   name: 'ServeDev',
@@ -61,7 +72,7 @@ export default Vue.extend({
     <b-card
       title="Event Timeline"
     >
-      <bootstrap-vue-timeline
+      <b-timeline
         :items="timelineItems"
       />
     </b-card>
@@ -89,6 +100,11 @@ TBD
 **Install dependencies**:
 ```bash
 yarn install --dev
+```
+
+**Build component**:
+```bash
+yarn build
 ```
 
 **Run example app locally**:

@@ -59,7 +59,8 @@
   },
   "standard": {
     "ignore": [
-      "*.config.js"
+      "*.config.js",
+      "dist/"
     ]
   }
 }

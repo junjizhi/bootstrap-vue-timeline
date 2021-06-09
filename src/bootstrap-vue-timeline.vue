@@ -7,9 +7,6 @@ Vue.component('b-list-group', BListGroup)
 Vue.component('b-list-group-item', BListGroupItem)
 Vue.component('b-tooltip', BTooltip)
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-
 export default /*#__PURE__*/{
   name: 'BootstrapVueTimeline', // vue component name
   props: {
