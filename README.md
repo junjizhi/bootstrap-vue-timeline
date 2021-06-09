@@ -1,11 +1,20 @@
 # bootstrap-vue-timeline
 
 ## Introduction
-A timeline component similar to [Ant Timeline](https://www.antdv.com/components/timeline/) based on [Bootstrap-Vue](https://bootstrap-vue.org/).
+A simple timeline component similar to [Ant Timeline](https://www.antdv.com/components/timeline/) based on [Bootstrap-Vue](https://bootstrap-vue.org/).
 
 ## Demo
 
 Link: TBD
+
+## Installation
+
+```bash
+npm i bootstrap-vue-timeline
+
+# or:
+yarn add bootstrap-vue-timeline
+```
 
 ## Usage
 
@@ -60,7 +69,7 @@ export default Vue.extend({
 </template>
 ```
 
-## Features (WIP)
+## Features
 - [ ] Loading spinner
 - [ ] Support item head color variants
 - [ ] Support `reverse` props
