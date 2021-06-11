@@ -8,9 +8,20 @@ Vue.component('b-list-group-item', BListGroupItem)
 Vue.component('b-tooltip', BTooltip)
 
 export default /*#__PURE__*/{
-  name: 'BootstrapVueTimeline', // vue component name
+  name: 'BootstrapVueTimeline',
   props: {
-    items: Array
+    items: Array,
+    reverse: Boolean
+  },
+  computed: {
+    orderedItems() {
+      const items = this.items
+      if (this.reverse) {
+        items.reverse()
+      }
+
+      return items
+    }
   },
   methods: {
     formatAgo(timestamp) {
@@ -29,7 +40,7 @@ export default /*#__PURE__*/{
 <template>
   <b-list-group>
     <b-list-group-item
-      v-for="(item, index) in items"
+      v-for="(item, index) in orderedItems"
       :key="item.timestamp + item.title"
       :href="item.link"
       class="flex-column align-items-start"

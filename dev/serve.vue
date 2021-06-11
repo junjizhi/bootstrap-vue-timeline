@@ -45,6 +45,7 @@ export default Vue.extend({
     >
       <bootstrap-vue-timeline
         :items="timelineItems"
+        :reverse="true"
       />
     </b-card>
   </div>
