@@ -1,29 +1,40 @@
 <script>
 import Vue from 'vue'
-import { BListGroup, BListGroupItem, BTooltip } from 'bootstrap-vue'
+import { BListGroup, BListGroupItem, BSpinner, BTooltip } from 'bootstrap-vue'
 import { format, formatDistanceToNow } from 'date-fns'
 
 Vue.component('b-list-group', BListGroup)
 Vue.component('b-list-group-item', BListGroupItem)
 Vue.component('b-tooltip', BTooltip)
+Vue.component('b-spinner', BSpinner)
 
 export default /*#__PURE__*/{
   name: 'BootstrapVueTimeline',
   props: {
     items: Array,
-    reverse: Boolean
+    reverse: Boolean,
+    loading: Boolean
   },
-  computed: {
+  methods: {
     orderedItems() {
-      const items = this.items
+      let items = this.items
+      if (this.loading) {
+        items = [...items, {spinner: true, timestamp: "time", title: "loading"}]
+      }
+
       if (this.reverse) {
         items.reverse()
       }
 
       return items
-    }
-  },
-  methods: {
+    },
+    itemsCount() {
+      if (this.loading) {
+        return this.items.length + 1
+      }
+
+      return this.items.length
+    },
     formatAgo(timestamp) {
       return formatDistanceToNow(timestamp, { addSuffix: true })
     },
@@ -40,18 +51,26 @@ export default /*#__PURE__*/{
 <template>
   <b-list-group>
     <b-list-group-item
-      v-for="(item, index) in orderedItems"
+      v-for="(item, index) in orderedItems()"
       :key="item.timestamp + item.title"
-      :href="item.link"
       class="flex-column align-items-start"
     >
       <div class="item-head" />
       <div
-        v-if="index !== items.length - 1"
+        v-if="index !== itemsCount() - 1"
         class="item-tail"
       />
 
-      <div class="item-content">
+      <b-spinner
+        v-if="item.spinner"
+        variant="primary"
+        class="ml-4"
+      />
+
+      <div
+        v-if="!item.spinner"
+        class="item-content"
+      >
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mt-2 mb-1">
             {{ item.title }}
