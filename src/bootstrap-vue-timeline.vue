@@ -13,7 +13,8 @@ export default /*#__PURE__*/{
   props: {
     items: Array,
     reverse: Boolean,
-    loading: Boolean
+    loading: Boolean,
+    dateFormat: String,
   },
   methods: {
     orderedItems() {
@@ -39,7 +40,8 @@ export default /*#__PURE__*/{
       return formatDistanceToNow(timestamp, { addSuffix: true })
     },
     formatFull(timestamp) {
-      return format(timestamp, 'yyyy-MM-dd HH:mm:ss')
+      const dateFormat = this.dateFormat || 'yyyy-MM-dd HH:mm:ss'
+      return format(timestamp, dateFormat)
     },
     timestampElementId(item) {
       return item.timestamp + item.title + '-timestamp'

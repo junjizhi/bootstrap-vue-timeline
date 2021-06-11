@@ -46,7 +46,8 @@ describe('bootstrap vue timeline component', () => {
       propsData: {
         items: sampleItems,
         reverse: false,
-        loading: true
+        loading: true,
+        dateFormat: 'dd/MM/yy HH:mm:ss'
       }
     })
     const text = wrapper.text()

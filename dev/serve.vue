@@ -18,19 +18,16 @@ export default Vue.extend({
         {
           timestamp: Date.parse('2021-05-29T20:20:46.444Z'),
           title: 'Dolore ullamco exercitation commodo',
-          content: 'Esse dolore consectetur aliqua laboris sunt aliqua do non.',
-          link: 'https://example1.com'
+          content: 'Esse dolore consectetur aliqua laboris sunt aliqua do non.'
         },
         {
           timestamp: Date.parse('2021-05-28T20:20:46.444Z'),
-          title: 'Voluptate pariatur dolore laborum eu',
-          link: '#'
+          title: 'Voluptate pariatur dolore laborum eu'
         },
         {
           timestamp: Date.parse('2021-01-28T20:20:46.444Z'),
           title: 'Mollit aliqua velit nostrud ipsum',
-          content: 'Magna officia est fugiat sit esse consectetur labore elit nulla duis consectetur. Et sit velit ad ipsum officia.',
-          link: '#'
+          content: 'Magna officia est fugiat sit esse consectetur labore elit nulla duis consectetur. Et sit velit ad ipsum officia.'
         }
       ]
     }
@@ -47,6 +44,7 @@ export default Vue.extend({
         :items="timelineItems"
         :reverse="false"
         :loading="true"
+        :date-format="'dd/MM/yy HH:mm:ss'"
       />
     </b-card>
   </div>
