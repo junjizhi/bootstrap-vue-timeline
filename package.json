@@ -1,7 +1,14 @@
 {
   "name": "bootstrap-vue-timeline",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "author": "Junji Zhi <junjizhi.to@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/junjizhi/bootstrap-vue-timeline"
+  },
+  "homepage": "https://github.com/junjizhi/bootstrap-vue-timeline",
+  "description": "A simple timeline component similar to Ant Timeline based on Bootstrap-Vue",
   "main": "dist/bootstrap-vue-timeline.ssr.js",
   "browser": "dist/bootstrap-vue-timeline.esm.js",
   "module": "dist/bootstrap-vue-timeline.esm.js",

@@ -3,9 +3,8 @@
 ## Introduction
 A simple timeline component similar to [Ant Timeline](https://www.antdv.com/components/timeline/) based on [Bootstrap-Vue](https://bootstrap-vue.org/).
 
-## Demo
-
-Link: TBD
+## Screenshots
+<img width="629" alt="image" src="https://user-images.githubusercontent.com/2715151/121779292-eab99400-cb68-11eb-8a2f-02a5ea3d2bf1.png">
 
 ## Dependencies
 
