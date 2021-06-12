@@ -71,9 +71,10 @@ export default Vue.extend({
     >
       <b-timeline
         :items="timelineItems"
-        :reverse="true"
-        :loading="true"
-        :date-format="'dd/MM/yy HH:mm:ss'"
+        :reverse="false"
+        date-format="dd/MM/yy HH:mm:ss"
+        variant="primary"
+        loading
       />
     </b-card>
   </div>
@@ -84,7 +85,7 @@ export default Vue.extend({
 - [x] Loading spinner
 - [x] Support `reverse` props
 - [x] Custom timestamp format
-- [ ] Support item head color variants
+- [x] Support item head color variants
 - [ ] Support custom icons
 - [ ] Refactor timeline and item into separate components
 

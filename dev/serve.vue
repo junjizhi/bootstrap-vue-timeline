@@ -43,8 +43,9 @@ export default Vue.extend({
       <bootstrap-vue-timeline
         :items="timelineItems"
         :reverse="false"
-        :loading="true"
-        :date-format="'dd/MM/yy HH:mm:ss'"
+        date-format="dd/MM/yy HH:mm:ss"
+        variant="primary"
+        loading
       />
     </b-card>
   </div>

@@ -15,8 +15,12 @@ export default /*#__PURE__*/{
     reverse: Boolean,
     loading: Boolean,
     dateFormat: String,
+    variant: String,
   },
   methods: {
+    bsVariant() {
+      return this.variant || 'primary'
+    },
     orderedItems() {
       let items = this.items
       if (this.loading) {
@@ -57,7 +61,7 @@ export default /*#__PURE__*/{
       :key="item.timestamp + item.title"
       class="flex-column align-items-start"
     >
-      <div class="item-head" />
+      <div :class="`item-head ${bsVariant()}`" />
       <div
         v-if="index !== itemsCount() - 1"
         class="item-tail"
@@ -65,7 +69,7 @@ export default /*#__PURE__*/{
 
       <b-spinner
         v-if="item.spinner"
-        variant="primary"
+        :variant="bsVariant()"
         class="ml-4"
       />
 
@@ -74,7 +78,7 @@ export default /*#__PURE__*/{
         class="item-content"
       >
         <div class="d-flex w-100 justify-content-between">
-          <h5 class="mt-2 mb-1">
+          <h5 class="mb-1">
             {{ item.title }}
           </h5>
           <small
@@ -108,9 +112,6 @@ export default /*#__PURE__*/{
 }
 
 .item-head {
-  background-color: #1890ff;
-  color: #1890ff;
-  border-color: #1890ff;
   position: absolute;
   width: 10px;
   height: 10px;
@@ -131,5 +132,53 @@ export default /*#__PURE__*/{
   top: -6px;
   margin: 0 0 0 18px;
   word-break: break-word;
+}
+
+.primary {
+  background-color: #007bff;
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.secondary {
+  background-color: #6c757d;
+  color: #6c757d;
+  border-color: #6c757d;
+}
+
+.success {
+  background-color: #28a745;
+  color: #28a745;
+  border-color: #28a745;
+}
+
+.info {
+  background-color: #17a2b8;
+  color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.warning {
+  background-color: #ffc107;
+  color: #ffc107;
+  border-color: #ffc107;
+}
+
+.danger {
+  background-color: #dc3545;
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.light {
+  background-color: #f8f9fa;
+  color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+.dark {
+  background-color: #343a40;
+  color: #343a40;
+  border-color: #343a40;
 }
 </style>
