@@ -3,11 +3,16 @@
 ## Introduction
 A simple timeline component similar to [Ant Timeline](https://www.antdv.com/components/timeline/) based on [Bootstrap-Vue](https://bootstrap-vue.org/).
 
-**Note**: This component assumes you use [Bootstrap-Vue (v4)](https://bootstrap-vue.org/) in your project and have installed [the dependencies](https://bootstrap-vue.org/docs).
-
 ## Demo
 
 Link: TBD
+
+## Dependencies
+
+
+* [Vue.js 2.6+](https://vuejs.org/2016/04/27/announcing-2.0/)
+* [Bootstrap-Vue (v2.21.2+)](https://bootstrap-vue.org/)
+* [Other Bootstrap-Vue dependencies](https://bootstrap-vue.org/docs).
 
 ## Installation
 
@@ -83,14 +88,22 @@ export default Vue.extend({
 - [x] Support item head color variants
 - [ ] Support custom icons
 - [ ] Refactor timeline and item into separate components
+- [ ] Emit events
 
 ## Component Reference
-### Properties
-TBD
+### Props
+
+| Name          | Type      | Description                                                                                                                                                                                              |
+| ------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `items`       | `Array`   | A list of timeline items to display. Supported keys include: `timestamp`, `title`, `content`.                                                                                                            |
+| `reverse`     | `Boolean` | The component displays a vertical timeline in the order of the `items` prop. If `reserve` is set to false, it displays items in reverse order.<br/> Default: false.                                      |
+| `loading`     | `Boolean` | If true, display a loading spinner in the last item.                                                                                                                                                     |
+| `date-format` | `String`  | Controls the date format in the tooltip when you hover the human friendly time.  Default: 'yyyy-MM-dd HH:mm:ss'                                                                                          |
+| `variant`     | `String`  | Color variant. It supports [Bootstrap color variants](https://bootstrap-vue.org/docs/reference/color-variants#color-variants-and-css-class-mapping), including 'primary', 'success'.  Default: 'primary' |
 ### Slots
-TBD
+N/A
 ### Events
-TBD
+N/A
 
 ## Development
 
@@ -112,6 +125,11 @@ yarn serve
 **Lints and fixes files**:
 ```bash
 yarn lint
+```
+
+**Generate component documentation**:
+```bash
+yarn doc src/bootstrap-vue-timeline.vue
 ```
 
 ## License

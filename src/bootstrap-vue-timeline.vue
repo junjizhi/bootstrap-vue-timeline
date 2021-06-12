@@ -11,10 +11,30 @@ Vue.component('b-spinner', BSpinner)
 export default /*#__PURE__*/{
   name: 'BootstrapVueTimeline',
   props: {
+    /**
+     * A list of timeline items to display. Supported keys include: `timestamp`, `title`, `content`.
+    */
     items: Array,
+    /**
+     * The component displays a vertical timeline in the order of the `items` prop.
+     * If `reserve` is set to false, it displays items in reverse order.
+     *
+     *  Default: false.
+    */
     reverse: Boolean,
+    /**
+     * If true, display a loading spinner in the last item.
+    */
     loading: Boolean,
+    /**
+     * Controls the date format in the tooltip when you hover the human friendly time.
+     *  Default: 'yyyy-MM-dd HH:mm:ss'
+    */
     dateFormat: String,
+    /**
+     * Color variant. It supports [Bootstrap color variants](https://bootstrap-vue.org/docs/reference/color-variants#color-variants-and-css-class-mapping), including 'primary', 'success'.
+     *  Default: 'primary'
+    */
     variant: String,
   },
   methods: {
