@@ -18,7 +18,7 @@ export default /*#__PURE__*/{
     variant: String,
   },
   methods: {
-    bsVariant() {
+    bootstrapVariant() {
       return this.variant || 'primary'
     },
     orderedItems() {
@@ -61,7 +61,7 @@ export default /*#__PURE__*/{
       :key="item.timestamp + item.title"
       class="flex-column align-items-start"
     >
-      <div :class="`item-head ${bsVariant()}`" />
+      <div :class="`item-head ${bootstrapVariant()}`" />
       <div
         v-if="index !== itemsCount() - 1"
         class="item-tail"
@@ -69,7 +69,7 @@ export default /*#__PURE__*/{
 
       <b-spinner
         v-if="item.spinner"
-        :variant="bsVariant()"
+        :variant="bootstrapVariant()"
         class="ml-4"
       />
 
@@ -94,7 +94,7 @@ export default /*#__PURE__*/{
           </b-tooltip>
         </div>
 
-        <small class="mb-1">
+        <small class="mb-1 item-description">
           {{ item.content || '' }}
         </small>
       </div>
@@ -132,6 +132,11 @@ export default /*#__PURE__*/{
   top: -6px;
   margin: 0 0 0 18px;
   word-break: break-word;
+}
+
+.item-description {
+  display: block;
+  text-align: left;
 }
 
 .primary {
