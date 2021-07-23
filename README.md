@@ -88,6 +88,7 @@ export default Vue.extend({
 - [x] Support `reverse` props
 - [x] Custom timestamp format
 - [x] Support item head color variants
+- [x] Support custom slots
 - [ ] Support custom icons
 - [ ] Refactor timeline and item into separate components
 - [ ] Emit events
@@ -95,13 +96,14 @@ export default Vue.extend({
 ## Component Reference
 ### Props
 
-| Name          | Type      | Description                                                                                                                                                                                              |
-| ------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `items`       | `Array`   | A list of timeline items to display. Supported keys include: `timestamp`, `title`, `content`.                                                                                                            |
-| `reverse`     | `Boolean` | The component displays a vertical timeline in the order of the `items` prop. If `reserve` is set to false, it displays items in reverse order.<br/> Default: false.                                      |
-| `loading`     | `Boolean` | If true, display a loading spinner in the last item.                                                                                                                                                     |
-| `date-format` | `String`  | Controls the date format in the tooltip when you hover the human friendly time.  Default: 'yyyy-MM-dd HH:mm:ss'                                                                                          |
-| `variant`     | `String`  | Color variant. It supports [Bootstrap color variants](https://bootstrap-vue.org/docs/reference/color-variants#color-variants-and-css-class-mapping), including 'primary', 'success'.  Default: 'primary' |
+| Name                  | Type      | Description                                                                                                                                                                                              | Default |
+| --------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `items`               | `Array`   | A list of timeline items to display. Supported keys include: `timestamp`, `title`, `content`.                                                                                                            |         |
+| `reverse`             | `Boolean` | The component displays a vertical timeline in the order of the `items` prop. If `reserve` is set to false, it displays items in reverse order.<br/> Default: false.                                      |         |
+| `loading`             | `Boolean` | If true, display a loading spinner in the last item.                                                                                                                                                     |         |
+| `date-format`         | `String`  | Controls the date format in the tooltip when you hover the human friendly time.  Default: 'yyyy-MM-dd HH:mm:ss'                                                                                          |         |
+| `variant`             | `String`  | Color variant. It supports [Bootstrap color variants](https://bootstrap-vue.org/docs/reference/color-variants#color-variants-and-css-class-mapping), including 'primary', 'success'.  Default: 'primary' |         |
+| `human-friendly-time` | `Boolean` | Displays human friendly time, e.g., '2 months ago'. If false, display the time as formatted according to the `dateFormat` param.  Default: true                                                          | `true`  |
 ### Slots
 N/A
 ### Events

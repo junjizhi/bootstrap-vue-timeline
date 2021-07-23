@@ -36,6 +36,14 @@ export default /*#__PURE__*/{
      *  Default: 'primary'
     */
     variant: String,
+    /**
+     * Displays human friendly time, e.g., '2 months ago'. If false, display the time as formatted according to the `dateFormat` param.
+     *  Default: true
+    */
+    humanFriendlyTime: {
+      type: Boolean,
+      default: true
+    }
   },
   methods: {
     bootstrapVariant() {
@@ -104,18 +112,23 @@ export default /*#__PURE__*/{
           <small
             :id="timestampElementId(item)"
             class="mt-2"
-          > {{ formatAgo(item.timestamp) }}</small>
+          > {{ humanFriendlyTime ? formatAgo(item.timestamp) : formatFull(item.timestamp) }}</small>
 
           <b-tooltip
             :target="timestampElementId(item)"
             triggers="hover"
           >
-            {{ formatFull(item.timestamp) }}
+            {{ humanFriendlyTime ? formatFull(item.timestamp) : formatAgo(item.timestamp) }}
           </b-tooltip>
         </div>
 
         <small class="mb-1 item-description">
-          {{ item.content || '' }}
+          <slot
+            :item="item"
+            name="item"
+          >
+            {{ item.content || '' }}
+          </slot>
         </small>
       </div>
     </b-list-group-item>
